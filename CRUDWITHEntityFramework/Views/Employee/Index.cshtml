@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CRUDWITHEntityFramework.Models.Employee>
+@{
+}
+<a asp-action="Create" asp-controller="Employee" class="btn btn-outline-danger">Create</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Gender</th>
+        
+        </tr>
+    </thead>
+    @foreach(var emp in Model)
+            {
+<tr>
+    <td>@emp.ID</td>
+    <td>@emp.Name</td>
+    <td>@emp.Email</td>
+    <td>@emp.Mobile</td>
+    <td>@emp.Gender</td>
+    <td>
+        <a asp-action="Edit" asp-controller="Employee" asp-rout-id="@emp.ID" onclick="return confirm('Are you Sure to Update this Record')">Edit</a>//<a asp-action="Delete" asp-controller="Employee" asp-rout-id="@emp.ID" onclick="return confirm('Are you sure to Delete this Item')">Delete</a>
+    </td>
+</tr>
+            }
+        </table>
